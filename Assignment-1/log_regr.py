@@ -35,10 +35,10 @@ def plot_cost_history(learning_rates, cost_history):
 
 
 def get_accuracy(test_labels, test_pred):
-    success = 0
-    for i in range(len(test_labels)):
-        if test_labels[i] == test_pred[i].round():
-            success += 1
+    success = sum(
+        test_labels[i] == test_pred[i].round() for i in range(len(test_labels))
+    )
+
     return success / len(test_labels)
 
 
@@ -73,9 +73,7 @@ class LogisticRegression:
 
     def forward(self, input):
         z = np.dot(input, self.input_weights)
-        prediction = np.array(sigmoid(z), dtype=float)
-
-        return prediction
+        return np.array(sigmoid(z), dtype=float)
 
     def cost_function(self, prediction):
         cost = 0
