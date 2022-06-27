@@ -24,11 +24,10 @@ class MLPModel:
     def predict(self, input):
         # demonstrate prediction
         x_input = input.reshape((1, self.input_size))
-        prediction = self.model.predict(x_input, verbose=0)
-        return prediction
+        return self.model.predict(x_input, verbose=0)
 
     def save_model(self, name):
-        self.model.save('saved-models/' + name)
+        self.model.save(f'saved-models/{name}')
 
     def load_model(self, name):
         self.model = load_model(name)
@@ -55,7 +54,7 @@ class CNNModel:
         return prediction[0]
 
     def save_model(self, name):
-        self.model.save('saved-models/' + name)
+        self.model.save(f'saved-models/{name}')
 
     def load_model(self, name):
         self.model = load_model(name)
@@ -80,11 +79,10 @@ class LSTMModel:
     def predict(self, input):
         # demonstrate prediction
         x_input = input.reshape((1, self.input_size, 1))
-        prediction = self.model.predict(x_input, verbose=0)
-        return prediction
+        return self.model.predict(x_input, verbose=0)
 
     def save_model(self, name):
-        self.model.save('saved-models/' + name)
+        self.model.save(f'saved-models/{name}')
 
     def load_model(self, name):
         self.model = load_model(name)
@@ -111,11 +109,10 @@ class CNNLSTMModel:
     def predict(self, input):
         # demonstrate prediction
         x_input = input.reshape((1, 2, 25, 1))
-        prediction = self.model.predict(x_input, verbose=0)
-        return prediction
+        return self.model.predict(x_input, verbose=0)
 
     def save_model(self, name):
-        self.model.save('saved-models/' + name)
+        self.model.save(f'saved-models/{name}')
 
     def load_model(self, name):
         self.model = load_model(name)
